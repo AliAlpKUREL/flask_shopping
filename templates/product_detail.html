@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="/">Home</a>
+
+        </div>
+    </header>
+
+    <!-- Breadcrumbs Section -->
+    <section class="breadcrumbs">
+        <a href="/">Home</a> &gt;
+        <a href="/category/{{ product['category'] }}">{{ product['category'] }}</a> &gt;
+        <span>{{ product['name'] }}</span>
+    </section>
+
+    <!-- Product Details Section -->
+    <section class="product-detail">
+        <div class="product-detail-container">
+            <div class="product-detail-image">
+                <!-- Updated image source -->
+                <img src="{{ url_for('static', filename='image/' + product['image']) }}" alt="{{ product['name'] }}">
+            </div>
+            <div class="product-detail-info">
+                <h1>{{ product['name'] }}</h1>
+                <p>{{ product['description'] }}</p>
+                <p class="product-price">Price: <strong>{{ product['price'] }} TL</strong></p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Shopping Site. All rights reserved.</p>
+    </footer>
+</body>
+</html>
